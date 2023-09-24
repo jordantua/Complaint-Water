@@ -69,9 +69,13 @@ $ npm run start:dev
 ## Support
 
 another command created after "npm run"
+
 "migration:generate": "npm run typeorm -- migration:generate",
+
 "migration:run": "npm run typeorm -- migration:run",
+
 "migration-revert": "npm run typeorm -- migration:revert",
+
 "db:drop": "npm run typeorm schema:drop"
 
 
