@@ -1,0 +1,955 @@
+{
+	"info": {
+		"_postman_id": "3843d9e0-30f4-4bc2-95e0-a2190ced0f52",
+		"name": "Complaint Water",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17808564"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Jordan\",\r\n    \"password\": \"Rahasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/v1/users/register",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpvcmRhbiIsImlhdCI6MTY5NTM5NzcwNSwiZXhwIjoxNjk1NDAxMzA1fQ.YkBOS8ISfMmb37ZGMWCUd5tgJGD5fkQuxDilZY2nHf8",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Jordan\",\r\n    \"password\": \"Rahasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/v1/users/login",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "whoami",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}api/v1/users/whoami",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"v1",
+								"users",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Complaint Management",
+			"item": [
+				{
+					"name": "Submit Fixing Officer",
+					"item": [
+						{
+							"name": "Submit FIxing By Officer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}api/v1/complaint-handling",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"complaint-handling"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Complaint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"desc\": \"Rumah saya mati listrik\",\r\n    \"Image\": \"base64: 12t37y1923601276301987231092837083709183017\",\r\n    \"meteranId\": 1,\r\n    \"complaint_cat_isId\":2,\r\n    \"status\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/v1/complaint/kirim",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"v1",
+								"complaint",
+								"kirim"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complaint Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"desc\": \"Rumah saya mati listrik edited\",\r\n    \"Image\": \"base64: 111111111111111111111111111111111\",\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/v1/complaint/7",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"v1",
+								"complaint",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get 1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"desc\": \"Rumah saya mati listrik edited\",\r\n    \"image\": \"base64: 111111111111111111111111111111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/v1/complaint/73",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"v1",
+								"complaint",
+								"73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"desc\": \"Rumah saya mati listrik edited\",\r\n    \"image\": \"base64: 111111111111111111111111111111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/v1/complaint",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"v1",
+								"complaint"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Management",
+			"item": [
+				{
+					"name": "Management",
+					"item": [
+						{
+							"name": "Personal",
+							"item": [
+								{
+									"name": "Personal Post",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpvcmRhbiIsImlhdCI6MTY5NTM5NzcwNSwiZXhwIjoxNjk1NDAxMzA1fQ.YkBOS8ISfMmb37ZGMWCUd5tgJGD5fkQuxDilZY2nHf8",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Jordan Name\",\r\n    \"email\": \"Jordan@abc.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/v1/personal",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"personal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get 1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpvcmRhbiIsImlhdCI6MTY5NTM5NzcwNSwiZXhwIjoxNjk1NDAxMzA1fQ.YkBOS8ISfMmb37ZGMWCUd5tgJGD5fkQuxDilZY2nHf8",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Jordan Name\",\r\n    \"email\": \"Jordan@abc.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/v1/personal/1",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"personal",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Edit Roles",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpvcmRhbiIsImlhdCI6MTY5NTM5NzcwNSwiZXhwIjoxNjk1NDAxMzA1fQ.YkBOS8ISfMmb37ZGMWCUd5tgJGD5fkQuxDilZY2nHf8",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/v1/users/roles/1/name/admin",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"users",
+												"roles",
+												"1",
+												"name",
+												"admin"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Role",
+							"item": [
+								{
+									"name": "Get Role",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"admin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/v1/role",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"role"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Post Role",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"admin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/v1/role",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"role"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Categori Complaint",
+							"item": [
+								{
+									"name": "Save Complaint Categoris",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Service Usual\",\r\n    \"class\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/v1/complaint-category",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"complaint-category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Complaint Cat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}api/v1/complaint-category",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"complaint-category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get 1",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}api/v1/complaint-category/1",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"complaint-category",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Task",
+							"item": [
+								{
+									"name": "Save Task",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Service atau penggantian part\",\r\n    \"class\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/v1/task",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"task"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get All Task",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}api/v1/task",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"task"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get 1",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}api/v1/task/1",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"v1",
+												"task",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get All User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}api/v1/users/all",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}api/v1/users/single/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"single",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All User Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}api/v1/users/all",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"users",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Meteran",
+					"item": [
+						{
+							"name": "Assign Meteran",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpvcmRhbiIsImlhdCI6MTY5NTM5NzcwNSwiZXhwIjoxNjk1NDAxMzA1fQ.YkBOS8ISfMmb37ZGMWCUd5tgJGD5fkQuxDilZY2nHf8",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"CM0000012345\",\r\n    \"address\": \"Alamat 1\",\r\n    \"lat\": \"-06.5214525\",\r\n    \"long\": \"106.2584698\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/v1/meter/3",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"meter",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get My Meteran",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}api/v1/meter/me",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"meter",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Meteran",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}api/v1/meter",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"meter"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get 1 Meteran",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}api/v1/meter/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"v1",
+										"meter",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -68,6 +68,9 @@ $ npm run start:dev
 
 ## Support
 
+JSON Request ada di
+Complaint Water.postman_collection.json
+
 another command created after "npm run"
 
 "migration:generate": "npm run typeorm -- migration:generate",
