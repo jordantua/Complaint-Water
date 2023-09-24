@@ -56,9 +56,25 @@ $ yarn run test:e2e
 
 # test coverage
 $ yarn run test:cov
+
+# Migrate Create migration and migrate and run using npm @JordanTuaYosephindo
+$ npm run migration:generate -- db/migrations/Initial_Migration
+
+$ npm run migration:run
+
+$ npm run start:dev
 ```
 
+
 ## Support
+
+another command created after "npm run"
+"migration:generate": "npm run typeorm -- migration:generate",
+"migration:run": "npm run typeorm -- migration:run",
+"migration-revert": "npm run typeorm -- migration:revert",
+"db:drop": "npm run typeorm schema:drop"
+
+
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
